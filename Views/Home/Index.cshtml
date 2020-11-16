@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 thumbnail" style="margin-top: 2px">
+            <img class="thumbnail" src="/Images/@item.ImageName"/>
+            <h2 class="text-center">@item.Title</h2>
+            <p class="text-success text-center">@item.Price تومان</p>
+            <a class="btn btn-success btn-block" asp-controller="Orders" asp-action="AddToCart" asp-route-id="@item.ProductId">افزودن به سبد خرید</a>
+        </div>
+    }
+</div>
